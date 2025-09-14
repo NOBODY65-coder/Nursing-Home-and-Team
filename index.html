@@ -83,20 +83,24 @@
 
     /* Left column: owner profile */
     .leftcol{
-      width:280px;
-      min-width:220px;
+      width:420px;
+      min-width:400px;
       background:var(--card);
       border-radius:10px;
       padding:14px;
       box-shadow:0 6px 18px rgba(0,0,0,0.06);
       height:fit-content;
     }
-    .owner-img{
-      width:100%;
-      border-radius:10px;
-      height:700px;
-      object-fit:cover;
-      border:1px solid #eee;
+    
+.owner-img {
+  width: 100%;       /* makes it fill the container */
+  max-width: 400px;  /* but never grow beyond 400px */
+  height:500px;      /* keeps the correct aspect ratio */
+  display: block;
+  margin: 0 auto;    /* centers the image */
+  border-radius: 10px; /* optional, gives rounded corners */
+}
+
     }
     .owner-name{font-weight:700;margin-top:10px}
     .small{color:var(--muted);font-size:14px}
@@ -164,18 +168,15 @@
 
   <main class="container">
     <aside class="leftcol" aria-labelledby="owner-heading">
-      <img src="owner.jpeg" alt="Owner photo (replace owner.jpg)" class="owner-img"width="1000px";height="2252px">
+      <img src="owner.jpeg" alt="Owner photo (replace owner.jpg)" class="owner-img">
       <div id="owner-heading" class="owner-name">Owner: [Mithu Kumar]</div>
       <div class="small">Founder & Lead Nursing Practitioner</div>
-      <div class="exp">we provide 24/7 service of nurses and aya coworkers and male and female attendance right at your home.The types of staffs we provide possesing GDA, GNM, ANM certificates
-      
-
-
-       <hr style="margin:12px 0;border:none;border-top:1px solid #f0f0f0">
+      <div class="exp">we provide 24/7 service of nurses coworkers and male and female attendance righjt at your home.
+      <hr style="margin:12px 0;border:none;border-top:1px solid #f0f0f0">
       <div class="small">Quick contact</div>
       <div style="margin-top:8px">
         <div class="small">Email: <a href="mailto:mithukumar1981@gmail.com">mithukumar1981@egmail.com</a></div>
-        <div class="small">Phone: <a href="tel:+917003064922">+91-7003064922</a></div>
+        <div class="small">Phone: <a href="tel:+919907002164">+91-7003064922</a></div>
       </div>
     </aside>
 
@@ -186,7 +187,7 @@
         <p>We provide trusted in-home nursing and caregiving services. Below is an overview of our owner, team, and offerings. Use the menu to explore sections.</p>
 
         <h3>Owner details</h3>
-        <p><strong>[Mithu Kumar]</strong> has over <strong>We are providing home staffs and coworker right at your home.</p>
+        <p><strong>[Owner Name]</strong> has over <strong>1We are providing home staffs and coworkerright at your home.</p>
 
         <h3>Why choose us</h3>
         <blockquote style="background:#f9fdf9;padding:12px;border-left:4px solid #e6f4ea;border-radius:6px">
@@ -213,6 +214,16 @@
         <h3 style="margin-top:12px">Household & Care Support 24/7 service</h3>
         <p>Our AYA caregivers help with cooking, household maintenance, bathing and daily routine assistance for patients and elderly family members an always present for you for 24 hours.</p>
       </article>
+	<!--Gallery-->
+	<article id="gallery"class="section">
+	<h2>gallery how we work<h2>
+	<img src=""alt="care of eleder"width="300px";height="400px" >       
+	<img src=""alt="care of eleder"width="300px";height="400px" >         
+	<img src=""alt="care of eleder"width="300px";height="400px" >         
+	<img src=""alt="care of eleder"width="300px";height="400px" >         
+	<img src=""alt="care of eleder"width="300px";height="400px" >         
+	<img src=""alt="care of eleder"width="300px";height="400px" >         
+	</article>  
 
       <!-- History -->
       <article id="history" class="section">
@@ -220,19 +231,9 @@
         <p>One of the most famous early figures in modern nursing is Florence Nightingale, known as "The lady with the lamp" for her tireless night-time rounds during the Crimean War. Her dedication helped to transform nursing into a profession grounded in compassion, hygiene, and evidence-based practice — showing that nursing is devotion to human well-being rather than mere business.</p>
         <figure style="margin-top:12px">
           <img src="default.jpg" alt="Florence Nightingale" style="max-width:220px;border-radius:8px;border:1px solid #eee;object-fit:cover">
-          <figcaption class="small">Florence Nightingale — an early nursing pioneer. </figcaption>
+          <figcaption class="small">Florence Nightingale — an early nursing pioneer. (default.jpg with your image)</figcaption>
         </figure>
       </article>
-      <!-- Gallery -->
-      <section id="gallery">
-  <h2>Our Work Gallery</h2>
-  <div class="gallery">
-    <img src="nursecare2.jpg" alt="Work 1">
-    <img src="carenurse.jpg" alt="Work 2">
-    <img src=".jpg" alt="Work 3">
-    <img src="work4.jpg" alt="Work 4">
-  </div>
-</section>
 
       <!-- Locations -->
       <article id="locations" class="section">
@@ -290,7 +291,7 @@
   </main>
 
   <footer style="text-align:center;padding:16px;color:#444;">
-    © 2025 Ya muqeetu Home Team — All rights reserved.
+    © 2025 Al Muqeet Home Team — All rights reserved.
   </footer>
 
   <script>
@@ -363,7 +364,7 @@
     <p>Made with HTML + a little CSS</p>
   </header>
 
-  <img class="logo" src="yamuqeetu.webp" alt="Institution logo">
+  <img class="logo" src="Ya%20muqeetu.webp" alt="Institution logo">
 
   <p>Hello visitor 👋 This is my first website.</p>
 
@@ -372,13 +373,4 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
