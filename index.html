@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ya Muqeetu Home Team</title>
+  <style>
+    :root{
+      --green:#2e8b57; /* main title bar color */
+      --green-dark:#23684a; /* on hover deeper look */
+      --pink:#ffe9ef; /* main body background */
+      --card:#ffffff;
+      --muted:#555;
+      --maxwidth:1100px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--pink);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+    }
+/* === Nurse 3D scene layout === */
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 32px;
+  align-items: center;
+  padding: 20px;
+}
+.scene-wrap {
+  position: relative;
+  height: 70vh;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(180deg,#030309 0%, #0b0b0f 70%);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.goal-box {
+  background: #fff;
+  color: #111;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  font-weight: 600;
+  line-height: 1.5;
+}
+.goal-title {
+  color: #2e8b57;
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+@media(max-width: 1000px) {
+  .wrap { grid-template-columns: 1fr; }
+  .scene-wrap { height: 50vh; }
+}
+
+    /* Top header with logo */
+    .topbar{
+      background:var(--green);
+      color:white;
+      display:flex;
+      align-items:center;
+      padding:10px 16px;
+      position:relative;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .logo{
+      width:2.52cm;
+      height:2.52cm;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid rgba(255,255,255,0.9);
+      margin-right:14px;
+    }
+    .brand{
+      font-size:20px;
+      font-weight:700;
+      letter-spacing:0.4px;
+    }
+
+    /* Navigation */
+    nav{
+      display:flex;
+      gap:8px;
+      margin-left:auto;
+    }
+    nav button{
+      background:transparent;
+      color:white;
+      border:none;
+      padding:10px 14px;
+      font-size:15px;
+      cursor:pointer;
+      border-radius:6px;
+      transition:all 180ms ease;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    nav button:hover{
+      background:linear-gradient(180deg,var(--green-dark),var(--green));
+      transform:translateY(1px);
+      box-shadow: inset 0 3px 6px rgba(0,0,0,0.18), 0 4px 8px rgba(0,0,0,0.08);
+    }
+
+    .container{
+      max-width:var(--maxwidth);
+      margin:18px auto;
+      display:flex;
+      gap:20px;
+      padding:10px;
+    }
+
+    /* Left column: owner profile */
+    .leftcol{
+      width:420px;
+      min-width:400px;
+      background:var(--card);
+      border-radius:10px;
+      padding:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      height:fit-content;
+    }
+    .owner-img {
+      width: 100%;
+      max-width: 400px;
+      height: 450px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+      object-fit: cover;
+
+    }
+    .owner-name{font-weight:700;margin-top:10px}
+    .small{color:var(--muted);font-size:14px}
+    .exp{margin-top:10px;background:linear-gradient(90deg,#f7fff7,#f1fff1);padding:8px;border-radius:8px;font-weight:600}
+
+    /* Main content area */
+    .main{
+      flex:1;
+      min-height:420px;
+    }
+    .section{
+      display:none;
+      background:var(--card);
+      padding:18px;
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    }
+    .section.active{display:block}
+
+    h2{margin-top:0}
+
+    /* Gallery */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .gallery img {
+      width: 250px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Staff cards */
+    .staff-grid{display:flex;flex-wrap:wrap;gap:12px}
+    .staff{
+      display:flex;gap:10px;align-items:center;background:#fff;padding:8px;border-radius:8px;min-width:240px;flex:1 1 300px;border:1px solid #f0f0f0
+    }
+    .staff img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+
+    /* Services list */
+    ul.services{padding-left:20px}
+
+    /* Job table */
+    table.jobs{width:100%;border-collapse:collapse;margin-top:8px}
+    table.jobs th,table.jobs td{padding:8px;border:1px solid #eee;text-align:left}
+
+    .contact-btn{display:inline-block;background:var(--green);color:white;padding:10px 14px;border-radius:8px;text-decoration:none}
+
+    /* Responsive */
+    @media(max-width:880px){
+      .container{flex-direction:column;padding:10px}
+      .leftcol{width:100%}
+      nav{display:none}
+      .topbar{padding:10px 12px}
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+   <img class="logo" src="yamuqeetu.webp" alt="Institution logo">
+   <div class="brand">Ya Muqeetu Home Team</div>
+    <nav aria-label="Main menu">
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('about')">About Us</button>
+      <button onclick="showSection('gallery')">Gallery</button>
+      <button onclick="showSection('history')">History of Nursing</button>
+      <button onclick="showSection('locations')">Locations</button>
+      <button onclick="showSection('jobs')">Jobs</button>
+      <button onclick="showSection('contact')">Contact</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <aside class="leftcol">
+      <img src="owner.jpeg" alt="Owner photo" class="owner-img">
+      <div class="owner-name">Owner: Mithu Kumar</div>
+      <div class="small">Founder & Lead Nursing Practitioner</div>
+      <div class="exp">
+        We provide 24/7 service of nurses, coworkers and male/female attendants right at your home.
+      </div>
+      <hr style="margin:12px 0;border:none;border-top:1px solid #f0f0f0">
+      <div class="small">Quick contact</div>
+      <div style="margin-top:8px">
+        <div class="small">Email: <a href="mailto:mithukumar1981@gmail.com">mithukumar1981@gmail.com</a></div>
+        <div class="small">Phone: <a href="tel:+917003064922">+91-7003064922</a></div>
+      </div>
+    </aside>
+
+    <section class="main">
+     <!-- Home Section -->
+<article id="home" class="section">
+  <div class="wrap">
+    <!-- 3D scene -->
+    <div class="scene-wrap" id="sceneWrap">
+      <!-- three.js canvas will be injected here -->
+    </div>
+
+    <!-- Mission / Goal box -->
+    <div class="side">
+      <div class="goal-box">
+        <div class="goal-title">Our promise in action</div>
+        <div>
+          We want our nurses and practitioners to be trustworthy and honest —
+          not only in words, but in their actions. We show this through
+          compassionate care, punctuality, and real accountability each day.
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+      <!-- About -->
+      <article id="about" class="section">
+        <h2>About Us</h2>
+        <p>At Ya Muqeetu Home Team we believe nursing is devotion — not business...</p>
+      </article>
+
+      <!-- Gallery -->
+      <article id="gallery" class="section">
+        <h2>Gallery</h2>
+        <div class="gallery">
+          <img src="nursecare1.jpg" alt="nursecare">
+          <img src="nursework2.jpg" alt="nursecare2">
+          <img src="nursework3.jpg" alt="nursecare3">
+        </div>
+      </article>
+
+      <!-- History -->
+      <article id="history" class="section">
+        <h2>History of Nursing</h2>
+        <p>One of the most famous early figures in modern nursing is Florence Nightingale...</p>
+      </article>
+
+      <!-- Locations -->
+      <article id="locations" class="section">
+        <h2>Locations We Serve</h2>
+        <ul class="services">
+          <li>Kolkata - North & South</li>
+          <li>Howrah</li>
+          <li>Hooghly</li>
+          <li>Nearby suburbs on request</li>
+          <li>Anywhere in the world</li>
+        </ul>
+      </article>
+
+      <!-- Jobs -->
+      <article id="jobs" class="section">
+        <h2>Jobs & Categories</h2>
+        <p>We hire staff based on certifications...</p>
+      </article>
+
+      <!-- Contact -->
+      <article id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:mithukumar1981@gmail.com">mithukumar1981@gmail.com</a><br>
+        Phone: <a href="tel:+917003064922">+91-7003064922</a></p>
+      </article>
+    </section>
+  </main>
+
+  <footer style="text-align:center;padding:16px;color:#444;">
+    © 2025 Ya Muqeetu Home Team — All rights reserved.
+  </footer>
+
+  <script>
+    function showSection(id){
+      // hide all sections
+      document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+      const el = document.getElementById(id);
+      if(el) el.classList.add('active');
+    }
+  </script>
+<script type="module">
+  import * as THREE from 'https://unpkg.com/three@0.154.0/build/three.module.js';
+  import { OrbitControls } from 'https://unpkg.com/three@0.154.0/examples/jsm/controls/OrbitControls.js';
+  import { GLTFLoader } from 'https://unpkg.com/three@0.154.0/examples/jsm/loaders/GLTFLoader.js';
+
+  const container = document.getElementById('sceneWrap');
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x00020a, 0.05);
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
+
+  const camera = new THREE.PerspectiveCamera(30, container.clientWidth/container.clientHeight, 0.1, 100);
+  camera.position.set(0, 1.6, 5);
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  controls.target.set(0, 1, 0);
+
+  // Lights
+  scene.add(new THREE.HemisphereLight(0xbfeaff, 0x080820, 0.7));
+  const dir = new THREE.DirectionalLight(0xffffff, 1);
+  dir.position.set(5, 10, 5);
+  scene.add(dir);
+
+  // Group for nurses
+  const cast = new THREE.Group();
+  scene.add(cast);
+
+  // Simple placeholder nurses if models missing
+  function createPlaceholder(color=0xffffff, hijab=false) {
+    const g = new THREE.Group();
+    const body = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.35,0.4,1.2,12),
+      new THREE.MeshStandardMaterial({ color })
+    );
+    body.position.y = 0.6; g.add(body);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.2,12,12),
+      new THREE.MeshStandardMaterial({ color:0xffe0cc })
+    );
+    head.position.y=1.35; g.add(head);
+    if(hijab){
+      const hood = new THREE.Mesh(
+        new THREE.SphereGeometry(0.255,12,12,0,Math.PI*2,0,Math.PI*1.1),
+        new THREE.MeshStandardMaterial({ color:0x2e6a48 })
+      );
+      hood.position.y=1.33; hood.scale.set(1,0.85,1.05);
+      g.add(hood);
+    }
+    g.rotation.x=-0.15;
+    return g;
+  }
+
+  // Try loading models (optional)
+  const loader = new GLTFLoader();
+  const defs = [
+    { url:'model/nurseani.glb', x:-0.9, hijab:true },
+    { url:'models/nurse2.glb', x:0.9, hijab:false }
+  ];
+
+  defs.forEach(def=>{
+    loader.load(def.url, gltf=>{
+      const model=gltf.scene;
+      model.position.set(def.x,0,0);
+      model.scale.setScalar(1.1);
+      model.rotation.x=-0.15;
+      cast.add(model);
+    },undefined,()=>{
+      const ph=createPlaceholder(def.hijab?0x2e6a48:0xbfbfbf,def.hijab);
+      ph.position.set(def.x,0,0);
+      cast.add(ph);
+    });
+  });
+
+  // Animate
+  function animate(){
+    requestAnimationFrame(animate);
+    cast.rotation.y = Math.sin(Date.now()*0.0002)*0.03;
+    controls.update();
+    renderer.render(scene,camera);
+  }
+  animate();
+
+  window.addEventListener('resize',()=>{
+    renderer.setSize(container.clientWidth,container.clientHeight);
+    camera.aspect=container.clientWidth/container.clientHeight;
+    camera.updateProjectionMatrix();
+  });
+</script>
+
+
+</body>
+</html>
